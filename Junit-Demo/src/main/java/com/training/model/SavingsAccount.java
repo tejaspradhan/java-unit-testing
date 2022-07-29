@@ -1,8 +1,17 @@
 package com.training.model;
+import com.training.dao.AccountDAO;
+
 
 public class SavingsAccount {
     private String name;
     private  double balance;
+    private AccountDAO accountDAO;
+
+    private SavingsAccount() {
+        this.name= "Tejas";
+        this.balance=4000;
+    }
+
     public SavingsAccount(String name, double balance){
         this.name = name;
         this.balance = balance;
@@ -28,7 +37,11 @@ public class SavingsAccount {
         this.balance = balance;
     }
 
+//    public void deposit(double amount) {
+//        this.setBalance(this.getBalance()+ amount);
+//    }
     public void deposit(double amount) {
-        this.setBalance(this.getBalance()+ amount);
-    }
+    this.setBalance(this.accountDAO.deposit(amount));
+}
+
 }
